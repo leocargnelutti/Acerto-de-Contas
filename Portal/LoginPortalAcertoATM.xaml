@@ -1,0 +1,333 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="LoginPortalAcertoATM" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_PortalBrowser" Type="OutArgument(ui:UiElement)" />
+    <x:Property Name="In_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1668,3048</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="60">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Login Portal Acerto ATM" sap:VirtualizedContainerService.HintSize="1678,2983" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="username" />
+      <Variable x:TypeArguments="ss:SecureString" Name="password" />
+      <Variable x:TypeArguments="x:Boolean" Name="jaEstaLogado" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1616,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Iniciando login no Portal Transacional&quot;]" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="PortalCredential" CacheStrategy="None" DisplayName="Get Credential" FolderPath="Backoffice" sap:VirtualizedContainerService.HintSize="1616,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[username]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Portal" sap:VirtualizedContainerService.HintSize="1616,2508" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OutUiElement="[out_PortalBrowser]" ScopeGuid="c15cbffa-e61c-4400-beac-635bbfdecf80" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1582,2291" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="1520,82" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[In_Config(&quot;URL_Portal&quot;).ToString]" Version="V1" />
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1520,242" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,163" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NCheckState DisplayName="Check App State 'Logout [svc_rpa]'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="c15cbffa-e61c-4400-beac-635bbfdecf80" Version="V1">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,380" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[jaEstaLogado]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Já estava logado no Portal Transacional&quot;]" />
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Não estava logado&quot;]" />
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/" DesignTimeRectangle="1796, 162, 89, 42" ElementType="Text" FriendlyName="'Logout [svc_rpa]'" FullSelectorArgument="&lt;webctrl aaname='Logout [svc_rpa] ' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Logout [svc_rpa] ' tag='A' type='' class='ng-binding' check:innerText='Logout [svc_rpa]' /&gt;" Guid="2e4bae31-4f95-4e08-8f09-206d3434bdff" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF0AAAAuCAYAAABKxxWsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAANVSURBVHhe7ZbPS1RRFMf7I/oD+gta2qKNmyBCiECYrQiauAh3rsyFm6BABnIhDDiCYJsGJIWUEBMlURIFi4Exk9FGHBoVQ3JMPPG98H3c97j+aPxxWpwLH968c8+999zPu/NmbtXdrhPjZjHpCph0BUy6AiZdAZOugElXwKQrYNIVMOkKmHQFTLoCJl0Bk66ASVfApCtg0hUw6VdE88NmmZmYkZ5nPcF+H5N+Serv1EtrQ6tkXmXkqHokI0Mj0vKoRRruNgTzQUx6fjnvBvux62QiNyHd7d2x2PzHeUFD8X5ck/Yn7VIuleXg10GsXgifm5yTw9+HMjU25aRPvpuUvcqeFL8VpSPVEZuHqEnHRtbya0Hp/5NwEqp3MD3oRC9ML8hA70B00sfejMnxn2OZfj8dm4OcK51PmY1CcEXDQpvrm1GcJxUNRTLGfsyPdZiHubEG+pK5XAMNpyybzrq1WCP6KQL9zEs+SII41kPNW8UtN5Z74zh/LjTUg7Eh6cvzy7Lzc0c6mzql/0W/VKtVV1PjvUZZL6zL9o9t9+phPjlXOhalPBady+bcFfd8KFgMY3cru1FhGId4SHpoE8DPPa0egPF8AJgHMb/fH0NYf7Ju9HFc5mUmqglzYw3khurFPeZAX+p+SoZeD0nb47ZoPvYxn1xIOgvDBChi8dOiy03mUKgfJ7VIRy5OJZp/EjFuuH84EhKqOwTHYkxyfb92xNkoLlQvat3f3Zeup11RDOABbHzfkFKxJE0PmmJ94MZOOkAM94iHNgF86ck450CdEM57roPPnJ/jfLAW1/brRh/nB4xhP2ed9L6ePvcjuvp11f1lRAz/WmY/zLp3+vjb8SjXJyYdk/oNRaWfp92Vzd8c2kXe6SjeP7E86Zg3+Q72N+3X4+eh37/HFffJvCSI+9LxmXvDFTHuCw0HCHvDuJB0MDo86gQDrI2HcHJyIiufV9yJ93NJTPpFwcIoksWgsOQ3pFZ86dfJaRJP46x8xJbmlqRSrkjhS0GyvVn3dzKZR2qSDkIn+irgvJcR759Wv2Fu5vyLdOSGvpW1UrN0o3ZMugImXQGTroBJV8CkK2DSFTDpCph0BUy6AiZdAZOugElXwKQrYNIVMOkKmHQFTPqNUyd/AbRoofyUFOs2AAAAAElFTkSuQmCC" InformativeScreenshot="354013e7b11f0055871b2c6a22e3f742.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='portal-cb.sep.local:8080/portal/' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive" />
+                    </uix:NCheckState.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NCheckState>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <uix:NCheckState DisplayName="Check App State 'Login'" sap:VirtualizedContainerService.HintSize="1520,1772" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="c15cbffa-e61c-4400-beac-635bbfdecf80" Version="V1">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="1016,1555" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Username'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="954,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="c15cbffa-e61c-4400-beac-635bbfdecf80" Text="[username]" Version="V1">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/logout#/login" DesignTimeRectangle="852, 315, 233, 28" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="c209b7ae-c097-4db7-a133-1066b5bb5c1b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAO0AAAAgCAYAAAD+O//lAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGoSURBVHhe7dxNasJQFIbhLqJrcU9dgyvJBrKBkAUU46CYefYQQYjgQARPc8y9mvSmhFaD9+D7wDfw+jN7iTrI2+J9IYwxOyNaxoxtEO3yYymrz5WUZckYi2TapLYZRKuHm6+N1HUtTdPIfr9njD152qI2qW36cK/Ras273U5Op5Ocz2fGWCTTJrVNbXQQrV6Gj8ejAIiPtqmNBtFq1QDio20SLWAI0QLGEC1gDNECxhAtYMwDot1KkSaSrrfu8f9t16kkeeUeARgTVbQAps0cbfdckuhSKWp33D/PM8ncc7crbXU5y/L2cfBe4LXNGm2Va5Tu626VtfFlbY4uzrRo3+nPx6K9febgc4AXN2O03Xl2ba27ehb1z9f78zBa/15+6wI3RAsYM2O0bXp3fj0mWiD0sGi7P4z8ugiHz/kz1Tv/9Y8oogXGPCDaO/WuwACmPSXay5XzelXu/+4FMOX5V1oAf0K0gDFECxhDtIAxRAsYMxqt3p7xcDi4lwCIibYZ3ELV36yccIG4aJOjNyv34WrNehlmjMUxbdIHG0TLGIt/RMuYqS3kG76oMz/TZIckAAAAAElFTkSuQmCC" InformativeScreenshot="37b72710901a1ccb7352bb422c2101d0.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="852, 290, 233, 17" ElementType="Text" FriendlyName="'Saque e Pague Login'" FullSelectorArgument="&lt;webctrl tag='H3' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H3' type='' class='' aaname='Saque e Pague | Login' check:innerText='Saque e Pague | Login' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAO0AAAAVCAYAAACqjGn7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAN5SURBVHhe7VjRceQgDL0irpatLk1sE/l3Dfu5HeRnW8ikAR8WAiQhMOv1EuOTZt4kMUgg6T1g8ufy9zIbDIZxYKI1GAaDidZgGAwmWoNhMIwj2o/7/DML+77PV23uWfD5wEQVGyb3aX64zt0/tDGP6atHPss+5vnxqY2NhTFEi+SVBYdmu1ZM5NupAHlrhL/O9283NIRwjyLa82AI0UJTvyZlzJ+eP7erMnYCFEXrAC+PuhiOARPt3hhAtHirqKJVoDyj9RsazcW93pxHJI32jFL2INdp2d+zPquipfvEPVKT8dlz28W90fjeXx6AuaB8faKtim0v0Yp13V/ZC6uaH+9r6Pm0/IxW3+dRMMRNCwUGW3kKZ0QOvqkZXrApThTwM6LFdRLBcbxGvC0+NdGyMbG/BXI9GSsSnMeoixaFQ9aR9cyxg2gxl+q6q/kpol0sxmzox0EwzD+iknCTSYKF05MVnQqZ/h7nyGati1YlmRo7YYtPRsQIFE+IB3HkPLrniiCjX2UOruN7IAXq9yL9+LiWQ4JaGwJ9nK7bkh/vq5pLsd7HwjCiTUAyRtOLLEUOzYKm5LcCJwVvrgcVQImkOnE8tvg4xNtCMXLrMOBBEG2ZVzocGEkrxIfa0Bqk8TintB/I/RXRrqy7+DXlp4hWrmmi7YBA0NBQQVhoEGmoflPIBraJtmQ10ZasLtoWEuH+gsE+yZ73FG3JFFF57CNarUYm2kFBG642nzYUmvKum7aGLT4OrSRS571JtEVxlrCPaLV1wa85PxNtP5QagoiNK5DO367or8ZCUgjR8jj+G10nJxEnBccWH4dGEqkExFxrtYHaxfjaHnltdHHpsROWHF8RbWmc9qklP15rE+2bwYtPAMRM3/08cpMG4joLDfUiTnOCqFMDOVFTXGeB0BiXkkQnFsEWn1YSwTwqfsxhsRBfxkIfWgtZv7w2nvhU2LKeOV4XLT+A/De51/X8TLT9EZtALGs0ISvY0oAS0dBcjHtGGvRBW4QGJKG3EDkQwGqkC3jW5wkSsZycxT1nxA7mvsPfVHCifi7fnNy8NtxfQ6NoC5YOObGuVrtqft7fRHsSrJ70J4VK3N2xLtp3oU9+/WGidTi/aPGWoi8F/Eaf6+9BD9H+Zn79YaJ1+C9uWvk0d9aH0D1E6/Br+fWHidZgGAwmWoNhKFzmf+c4RGv7VawmAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="954,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" IsPassword="True" ScopeIdentifier="c15cbffa-e61c-4400-beac-635bbfdecf80" SecureText="[password]" Version="V1">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/logout#/login" DesignTimeRectangle="852, 356, 233, 28" ElementType="InputBoxPassword" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='password' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='password' class='form-control' aaname='' /&gt;" Guid="6238e14a-a561-443d-afd7-831a4abfd62c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAO0AAAAgCAYAAAD+O//lAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAH0SURBVHhe7ZxBboJAFEB7iJ7FO/UMnoQLcAHiARpx0eieO2BiookLY+Ivf5jBQbAJ7aSdKe8lL4ER3D3/4IKXxetCEDEdiRYxMXvRLt+Wsn5fy263Q8RI1Ca1zUG0urj92Epd13I8HuV0OiHiH6stapPapgu3i1ZrPhwOcr1e5Xa7IWIkapPapjbai1bH8OVyEQCID21TGx1Eq1UDQHxom0QLkBBEC5AYRAuQGEQLkBhEC5AYgaKtpMgyyTqLZuWbVMXP7gf45wSJtlo1oa7umZnzvJS9PZ8E0QJ8SYBo91LmmeSb54maiO0U7q7TOPNCiuZe85mL3EZbuHv8+M1ndr2xoGyYIUEmrdSl5C6mhwm73+TeFNZtdC5lrYcaoD2222sToQ2zDdJb17PqXmn/ewHmQ5hoPbqpaoPyp6zTTFs7Udur2ml9j3Zk3eFPW6KFGRI8WoOZvG14Gu3o1nlytO2xm+RMWpgrAaJtt7C9MDVaP64uwsdt8PRoewETLcyQMJPWf6Y1uuhanv4RNSna5sz8AOj3NM/Cm+a6h+dngDkQJloA+DWIFiAxiBYgMYgWIDGIFiAxiBYgMYgWIDFGo9XXM57PZ3sJAMSEtjl4hap7WTnhAsSFNjn6snIXrtasYxgR41CbdMEOokXE+CVaxKRcyCcyDyGeQC5pzgAAAABJRU5ErkJggg==" InformativeScreenshot="b268df5f2dd3c902ecce119b15668fc4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="852, 315, 233, 28" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='form-control' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAO0AAAAgCAYAAAD+O//lAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGoSURBVHhe7dxNasJQFIbhLqJrcU9dgyvJBrKBkAUU46CYefYQQYjgQARPc8y9mvSmhFaD9+D7wDfw+jN7iTrI2+J9IYwxOyNaxoxtEO3yYymrz5WUZckYi2TapLYZRKuHm6+N1HUtTdPIfr9njD152qI2qW36cK/Ras273U5Op5Ocz2fGWCTTJrVNbXQQrV6Gj8ejAIiPtqmNBtFq1QDio20SLWAI0QLGEC1gDNECxhAtYMwDot1KkSaSrrfu8f9t16kkeeUeARgTVbQAps0cbfdckuhSKWp33D/PM8ncc7crbXU5y/L2cfBe4LXNGm2Va5Tu626VtfFlbY4uzrRo3+nPx6K9febgc4AXN2O03Xl2ba27ehb1z9f78zBa/15+6wI3RAsYM2O0bXp3fj0mWiD0sGi7P4z8ugiHz/kz1Tv/9Y8oogXGPCDaO/WuwACmPSXay5XzelXu/+4FMOX5V1oAf0K0gDFECxhDtIAxRAsYMxqt3p7xcDi4lwCIibYZ3ELV36yccIG4aJOjNyv34WrNehlmjMUxbdIHG0TLGIt/RMuYqS3kG76oMz/TZIckAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Login'" sap:VirtualizedContainerService.HintSize="954,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c15cbffa-e61c-4400-beac-635bbfdecf80" Version="V1">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/logout#/login" DesignTimeRectangle="852, 397, 233, 29" ElementType="Button" FriendlyName="'Login'" FullSelectorArgument="&lt;webctrl tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='btn btn-primary full-width' aaname='Login' check:innerText='Login' /&gt;" Guid="88444362-dc94-4e4c-9176-8858395af55c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAO0AAAAhCAYAAAA1ZyxAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGeSURBVHhe7dxPasJAGIbxHqJnCRR6h0Jv0UIPU+quh3DhHXTlAbLLSrJzIQiuvmZmnPwdpYVK502fgR8YM8nu8Yub3BX3hQHQQbSAmEG0T88P9vL+aG+fAHLhmnRtTqJ1X75+pC8C8LdcmzHcNlomLJA31+gg2tQmAHkhWkAM0QJiiBYQQ7SAGKIFxBCtis3WjnawcpM492MLK09mdZk6h9wRrYpfjRbKiFbF1WjD5IyrP0GXu8P524PV++bzftXu9/vKyuxUWd1ezw9D7ohWxZVo1/umtdPWlu7YRRj3Da5ZWe2aTEXbrBD6OX6/xx0jR0Sr4mK04/+n4fi4W4Qp2wuwOx5HW9l6sifeD7khWhUXow0TtIs2TF4XrZ/A34k2TunBnu5+yAvRqrjlpCVaKUSr4pb/aYlWCtGq8AGOVwwyRBhX/1HZR+hXZSWTdhaI9t/oHpvT56GCaOfMPyr3FhN0FogWEEO0gBiiBcQQLSCGaAExg2h5hSqQt8krVHlZOZCv5MvKY7hMXCAvrskY7CRaAPkjWkAM0QJSCvsCcOEJ2T5T4LgAAAAASUVORK5CYII=" InformativeScreenshot="8681fd7e886f79237c1f6a7d703081b9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="852, 356, 233, 28" ElementType="InputBoxPassword" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='password' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='password' class='form-control' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAO0AAAAgCAYAAAD+O//lAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAH0SURBVHhe7ZxBboJAFEB7iJ7FO/UMnoQLcAHiARpx0eieO2BiookLY+Ivf5jBQbAJ7aSdKe8lL4ER3D3/4IKXxetCEDEdiRYxMXvRLt+Wsn5fy263Q8RI1Ca1zUG0urj92Epd13I8HuV0OiHiH6stapPapgu3i1ZrPhwOcr1e5Xa7IWIkapPapjbai1bH8OVyEQCID21TGx1Eq1UDQHxom0QLkBBEC5AYRAuQGEQLkBhEC5AYgaKtpMgyyTqLZuWbVMXP7gf45wSJtlo1oa7umZnzvJS9PZ8E0QJ8SYBo91LmmeSb54maiO0U7q7TOPNCiuZe85mL3EZbuHv8+M1ndr2xoGyYIUEmrdSl5C6mhwm73+TeFNZtdC5lrYcaoD2222sToQ2zDdJb17PqXmn/ewHmQ5hoPbqpaoPyp6zTTFs7Udur2ml9j3Zk3eFPW6KFGRI8WoOZvG14Gu3o1nlytO2xm+RMWpgrAaJtt7C9MDVaP64uwsdt8PRoewETLcyQMJPWf6Y1uuhanv4RNSna5sz8AOj3NM/Cm+a6h+dngDkQJloA+DWIFiAxiBYgMYgWIDGIFiAxiBYgMYgWIDFGo9XXM57PZ3sJAMSEtjl4hap7WTnhAsSFNjn6snIXrtasYxgR41CbdMEOokXE+CVaxKRcyCcyDyGeQC5pzgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="954,82" sap2010:WorkflowViewState.IdRef="NGoToUrl_2" Url="[In_Config(&quot;URL_PortalAcertoATM&quot;).ToString]" Version="V3" />
+                  <uix:NCheckState DisplayName="Check App State 'Logout [svc_rpa]'" sap:VirtualizedContainerService.HintSize="954,605" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="c15cbffa-e61c-4400-beac-635bbfdecf80" Version="V1">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Login realizado com suceso&quot;]" />
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,388" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Não foi possível realizar o login no Portal Transacional&quot;]" />
+                        <Throw Exception="[New BusinessRuleException(&quot;Não foi possível logar no Portal Transacional&quot;)]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/" DesignTimeRectangle="1796, 162, 89, 42" ElementType="Text" FriendlyName="'Logout [svc_rpa]'" FullSelectorArgument="&lt;webctrl aaname='Logout [svc_rpa] ' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Logout [svc_rpa] ' tag='A' type='' class='ng-binding' check:innerText='Logout [svc_rpa]' /&gt;" Guid="2e4bae31-4f95-4e08-8f09-206d3434bdff" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF0AAAAuCAYAAABKxxWsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAANVSURBVHhe7ZbPS1RRFMf7I/oD+gta2qKNmyBCiECYrQiauAh3rsyFm6BABnIhDDiCYJsGJIWUEBMlURIFi4Exk9FGHBoVQ3JMPPG98H3c97j+aPxxWpwLH968c8+999zPu/NmbtXdrhPjZjHpCph0BUy6AiZdAZOugElXwKQrYNIVMOkKmHQFTLoCJl0Bk66ASVfApCtg0hUw6VdE88NmmZmYkZ5nPcF+H5N+Serv1EtrQ6tkXmXkqHokI0Mj0vKoRRruNgTzQUx6fjnvBvux62QiNyHd7d2x2PzHeUFD8X5ck/Yn7VIuleXg10GsXgifm5yTw9+HMjU25aRPvpuUvcqeFL8VpSPVEZuHqEnHRtbya0Hp/5NwEqp3MD3oRC9ML8hA70B00sfejMnxn2OZfj8dm4OcK51PmY1CcEXDQpvrm1GcJxUNRTLGfsyPdZiHubEG+pK5XAMNpyybzrq1WCP6KQL9zEs+SII41kPNW8UtN5Z74zh/LjTUg7Eh6cvzy7Lzc0c6mzql/0W/VKtVV1PjvUZZL6zL9o9t9+phPjlXOhalPBady+bcFfd8KFgMY3cru1FhGId4SHpoE8DPPa0egPF8AJgHMb/fH0NYf7Ju9HFc5mUmqglzYw3khurFPeZAX+p+SoZeD0nb47ZoPvYxn1xIOgvDBChi8dOiy03mUKgfJ7VIRy5OJZp/EjFuuH84EhKqOwTHYkxyfb92xNkoLlQvat3f3Zeup11RDOABbHzfkFKxJE0PmmJ94MZOOkAM94iHNgF86ck450CdEM57roPPnJ/jfLAW1/brRh/nB4xhP2ed9L6ePvcjuvp11f1lRAz/WmY/zLp3+vjb8SjXJyYdk/oNRaWfp92Vzd8c2kXe6SjeP7E86Zg3+Q72N+3X4+eh37/HFffJvCSI+9LxmXvDFTHuCw0HCHvDuJB0MDo86gQDrI2HcHJyIiufV9yJ93NJTPpFwcIoksWgsOQ3pFZ86dfJaRJP46x8xJbmlqRSrkjhS0GyvVn3dzKZR2qSDkIn+irgvJcR759Wv2Fu5vyLdOSGvpW1UrN0o3ZMugImXQGTroBJV8CkK2DSFTDpCph0BUy6AiZdAZOugElXwKQrYNIVMOkKmHQFTPqNUyd/AbRoofyUFOs2AAAAAElFTkSuQmCC" InformativeScreenshot="354013e7b11f0055871b2c6a22e3f742.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='portal-cb.sep.local:8080/portal/' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive" />
+                    </uix:NCheckState.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NCheckState>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,167" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NCheckState DisplayName="Check App State 'Logout [svc_rpa]'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="c15cbffa-e61c-4400-beac-635bbfdecf80" Version="V1">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,380" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[jaEstaLogado]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Já estava logado no Portal Transacional&quot;]" />
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,257" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Não foi possível realizar o login no Portal Transacional&quot;]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:LogMessage>
+                        <Throw Exception="[New BusinessRuleException(&quot;Não foi possível logar no Portal Transacional&quot;)]" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="Throw_2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Throw>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/" DesignTimeRectangle="1796, 162, 89, 42" ElementType="Text" FriendlyName="'Logout [svc_rpa]'" FullSelectorArgument="&lt;webctrl aaname='Logout [svc_rpa] ' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Logout [svc_rpa] ' tag='A' type='' class='ng-binding' check:innerText='Logout [svc_rpa]' /&gt;" Guid="2e4bae31-4f95-4e08-8f09-206d3434bdff" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF0AAAAuCAYAAABKxxWsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAANVSURBVHhe7ZbPS1RRFMf7I/oD+gta2qKNmyBCiECYrQiauAh3rsyFm6BABnIhDDiCYJsGJIWUEBMlURIFi4Exk9FGHBoVQ3JMPPG98H3c97j+aPxxWpwLH968c8+999zPu/NmbtXdrhPjZjHpCph0BUy6AiZdAZOugElXwKQrYNIVMOkKmHQFTLoCJl0Bk66ASVfApCtg0hUw6VdE88NmmZmYkZ5nPcF+H5N+Serv1EtrQ6tkXmXkqHokI0Mj0vKoRRruNgTzQUx6fjnvBvux62QiNyHd7d2x2PzHeUFD8X5ck/Yn7VIuleXg10GsXgifm5yTw9+HMjU25aRPvpuUvcqeFL8VpSPVEZuHqEnHRtbya0Hp/5NwEqp3MD3oRC9ML8hA70B00sfejMnxn2OZfj8dm4OcK51PmY1CcEXDQpvrm1GcJxUNRTLGfsyPdZiHubEG+pK5XAMNpyybzrq1WCP6KQL9zEs+SII41kPNW8UtN5Z74zh/LjTUg7Eh6cvzy7Lzc0c6mzql/0W/VKtVV1PjvUZZL6zL9o9t9+phPjlXOhalPBady+bcFfd8KFgMY3cru1FhGId4SHpoE8DPPa0egPF8AJgHMb/fH0NYf7Ju9HFc5mUmqglzYw3khurFPeZAX+p+SoZeD0nb47ZoPvYxn1xIOgvDBChi8dOiy03mUKgfJ7VIRy5OJZp/EjFuuH84EhKqOwTHYkxyfb92xNkoLlQvat3f3Zeup11RDOABbHzfkFKxJE0PmmJ94MZOOkAM94iHNgF86ck450CdEM57roPPnJ/jfLAW1/brRh/nB4xhP2ed9L6ePvcjuvp11f1lRAz/WmY/zLp3+vjb8SjXJyYdk/oNRaWfp92Vzd8c2kXe6SjeP7E86Zg3+Q72N+3X4+eh37/HFffJvCSI+9LxmXvDFTHuCw0HCHvDuJB0MDo86gQDrI2HcHJyIiufV9yJ93NJTPpFwcIoksWgsOQ3pFZ86dfJaRJP46x8xJbmlqRSrkjhS0GyvVn3dzKZR2qSDkIn+irgvJcR759Wv2Fu5vyLdOSGvpW1UrN0o3ZMugImXQGTroBJV8CkK2DSFTDpCph0BUy6AiZdAZOugElXwKQrYNIVMOkKmHQFTPqNUyd/AbRoofyUFOs2AAAAAElFTkSuQmCC" InformativeScreenshot="354013e7b11f0055871b2c6a22e3f742.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='portal-cb.sep.local:8080/portal/' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive" />
+                    </uix:NCheckState.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NCheckState>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/logout#/login" DesignTimeRectangle="852, 397, 233, 29" ElementType="Button" FriendlyName="'Login'" FullSelectorArgument="&lt;webctrl tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='btn btn-primary full-width' aaname='Login' check:innerText='Login' /&gt;" Guid="c86d5158-79f1-4d90-bf93-6efee6f3c3e7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAO0AAAAhCAYAAAA1ZyxAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGcSURBVHhe7dw9bsJAFEXhSMkS0qbLDhLRpUw2xEKokdgFBRU7QKJza3kFSLCAF88M439QIgXpXXJG+iRsj+kOzzR+mD3PDIAOogXE9KJ9ef2wp7fP+uQXACdCk6HNUbTh5OM7wQIehTZzuE20TFjAt9BoL9qpTQB8IVpADNECYogWEEO0gBiiBcQQrYrF3g52su1i4tqvLW17NCvWU9fgHdGq+NNooYxoVVyNNk3OvLoTdL47nc+erCjrz+Wm2R/3rSuzY2VFcz8/DN4RrYor0a7KurXj3ubhOESY9/Xu2VgRmpyKtl4p9HP8cU84hkdEq+JitMP/p+n4sFumKdsJsD0eRlvZarQnfx+8IVoVF6NNE7SNNk3eEG2cwD+JNk/p3p72++AL0aq45aQlWilEq+KW/2mJVgrRqogBDlcOMkWYV/dROUYYV2VbJu1dINp/o31snr4OFUR7z+KjcmcxQe8C0QJiiBYQQ7SAGKIFxBAtIKYXLa9QBXwbvUKVl5UDfk2+rDyHy8QFfAlN5mBH0QLwj2gBMUQLSJnZN1U/aDGFJbQkAAAAAElFTkSuQmCC" InformativeScreenshot="5567346d4ac191fd0622ae1b75c9677c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIXSURBVHhe7dbfT1JhHAZw/jTtosuuq63ypi5bQE5ddqMtK8ZkGC41DITGAmMjMYFQCeKHgAoGesDftDKXXsiYrbp4OufsbLBqbW1trZfns70772HnvXiefQ87OiIiIiIiIiIiIiIior+p3viMcLr0R2vvwxG04/8/ae/glyF/t7beHYpTgDIBxyeNn9bhcR2RTBnBRBEz8QICr1fla1EtQDmjHRfXl6/f8HQuA/dcGlOzKTiDSczIZcRXKuKHV2zIr8bo9CJsvgU89C7AHkiIN/6KC4Y7uNg9hG7zY/RYHOgbceF8nxk9Vg/G/DF4wkvwhDJIFjYxn9uAye4Vq4DOLiPCb/L4USj1Vts1eSMpdFzSi1XAma6bOHvtFnqtLtwe88G3mFPDKqOusPmiiOUldfyNDybELKAgbathWz2LpLVd0+CoS7wCOq8Y1XDpooRz+iEYhqfU+4Hx57g6OA7jsBu9Ix71N4c/JF4BHZcNmA7H1YCtah+PtF1Tv8UuXgH9lkno79qgv/8IzkAUgVgewfgKrJ4QzO5Z9T5b2pbDT+KG/NwTeQq0o+KpN04RShblAlZx3eTEPccLRJdKWNusiRu6VWX/APPZsvzP/woDE375q09ColCRP4tP2qOA3PoOksUqTO6XcvAqsuUdLFf22yO8olitIbYsIbW2hdz6rrp2339qnwKIiIiIiIiIiIiIiOgf0em+A0hNNk15dyFKAAAAAElFTkSuQmCC" InformativeScreenshot="87073b8d4970105c69a939cff6cdecae.png" Selector="&lt;html app='chrome.exe' title='portal-cb.sep.local:8080/portal/' /&gt;" Title="portal-cb.sep.local:8080/portal/" Url="[In_Config(&quot;URL_Portal&quot;).ToString]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

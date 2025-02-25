@@ -1,0 +1,324 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "AcertoRealizado&StateMachine_1",
+        "codigoAcerto&StateMachine_1",
+        "mensagemExecucao&State_3",
+        "codAcerto&Sequence_28",
+        "arquivo&Sequence_33",
+        "dataHora&Sequence_33",
+        "fim&StateMachine_1",
+        "resultado&StateMachine_1",
+        "mensagemErro&StateMachine_1",
+        "inicio&StateMachine_1",
+        "resultadoExecucao&StateMachine_1",
+        "portal_Browser&StateMachine_1",
+        "salesforce_Browser&StateMachine_1",
+        "FileDownloaded&StateMachine_1",
+        "TransactionItem&StateMachine_1",
+        "SystemException&StateMachine_1",
+        "BusinessException&StateMachine_1",
+        "TransactionNumber&StateMachine_1",
+        "Config&StateMachine_1",
+        "RetryNumber&StateMachine_1",
+        "TransactionField2&StateMachine_1",
+        "TransactionField1&StateMachine_1",
+        "TransactionID&StateMachine_1",
+        "dt_TransactionData&StateMachine_1",
+        "ConsecutiveSystemExceptions&StateMachine_1",
+        "ShouldStop&Sequence_25"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_OrchestratorQueueName",
+        "in_OrchestratorQueueFolder"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "out_SalesforceBrowser",
+        "out_PortalBrowser",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "LoginPortalAcertoATM.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "username&Sequence_2",
+        "password&Sequence_2",
+        "jaEstaLogado&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "In_Config",
+        "out_PortalBrowser"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Salesforce/SalesForce_Login.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "userName&Sequence_1",
+        "password&Sequence_1",
+        "elementoExiste&Sequence_1",
+        "userJaLogado&Sequence_3",
+        "passwordTxt&Sequence_14"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "Out_Browser",
+        "In_Config",
+        "in_UrlLogin"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Salesforce/ExtraiRelatório.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "elementoExiste&Sequence_33"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "In_SalesforceBrowser",
+        "Config",
+        "Out_FileDownloaded"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "CriarFila.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "_out_ForEachRow_1__CurrentIndex&Sequence_43",
+        "banco&Sequence_43",
+        "dados_Contestacoes&Sequence_43",
+        "dt_Emails&Sequence_43",
+        "emails&Sequence_43"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "FileDownloaded"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/Process.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "numeroLogico&Sequence_1",
+        "numeroLogicoRegex&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_AcertoRealizado",
+        "out_CodAcerto",
+        "in_PortalBrowser",
+        "in_SalesforceBrowser",
+        "in_TransactionItem",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "VerificaAcerto.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "acertoRealizado&Sequence_13",
+        "valorSemCifrao&Sequence_13",
+        "data&Sequence_13",
+        "valor&Sequence_13"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_SalesforceBrowser",
+        "in_Config",
+        "in_TransactionItem",
+        "in_NumeroLogico",
+        "in_PortalBrowser"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "RealizarAcerto.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "data&Sequence_43",
+        "valor&Sequence_43",
+        "valorSemCifrao&Sequence_43",
+        "acertoRealizado&Sequence_40",
+        "terminal&Sequence_40",
+        "valorAjuste&Sequence_26",
+        "tipoConta&Sequence_35"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "in_SalesforceBrowser",
+        "in_TransactionItem",
+        "in_PortalBrowser",
+        "in_NumeroLogico"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Salesforce/AvançarEtapa.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "elementoExiste&Sequence_53"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionItem",
+        "in_SalesforceBrowser",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/KillAllProcesses.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Portal/VerificaAcerto.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dataAtual&Sequence_35",
+        "tentativas&Sequence_36",
+        "dataInicio&Sequence_36",
+        "dataFim&Sequence_36",
+        "numeroCaso&Sequence_35",
+        "contagem&Sequence_13",
+        "dataDiferente&Sequence_13",
+        "valor&Sequence_13",
+        "data&Sequence_13",
+        "valorSemCifrao&Sequence_13"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_acertoRealizado",
+        "out_CodAcerto",
+        "in_PortalBrowser",
+        "in_NumeroLogico",
+        "in_TransactionItem",
+        "in_Config",
+        "in_SalesforceBrowser"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Portal/RealizarAcerto.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dataAcerto&Sequence_40",
+        "tentativas&Sequence_40",
+        "tipoContaRegex&Sequence_35",
+        "terminal&Sequence_40",
+        "acertoRealizado&Sequence_40",
+        "valorAjuste&Sequence_26",
+        "tipoConta&Sequence_35",
+        "valorSemCifrao&Sequence_43",
+        "valor&Sequence_43",
+        "data&Sequence_43"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_CodAcerto",
+        "in_TransactionItem",
+        "in_PortalBrowser",
+        "in_NumeroLogico",
+        "in_SalesforceBrowser",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "InsereNotas.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "elementoExiste&Sequence_37"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_VerificaAcerto",
+        "in_Resultado",
+        "in_TransactionItem",
+        "in_Config",
+        "in_SalesforceBrowser",
+        "in_MensagemExecucao"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Salesforce/CriarFila.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dados_Contestacoes&Sequence_43",
+        "dt_Emails&Sequence_43",
+        "emails&Sequence_43",
+        "_out_ForEachRow_1__CurrentIndex&Sequence_43",
+        "banco&Sequence_43"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "FileDownloaded"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/GetTransactionData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionNumber",
+        "in_Config",
+        "out_TransactionItem",
+        "out_TransactionField1",
+        "out_TransactionField2",
+        "out_TransactionID",
+        "io_dt_TransactionData"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllSettings.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_SettingsAndConstants&Sequence_5",
+        "dt_Assets&Sequence_6",
+        "AssetValue&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigFile",
+        "in_ConfigSheets",
+        "out_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}

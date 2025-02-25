@@ -1,0 +1,1115 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="RealizarAcerto" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="in_PortalBrowser" Type="InArgument(ui:UiElement)" />
+    <x:Property Name="in_NumeroLogico" Type="InArgument(x:String)" />
+    <x:Property Name="in_SalesforceBrowser" Type="InArgument(ui:UiElement)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="out_CodAcerto" Type="OutArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1760,9723</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="1770,9658" sap2010:WorkflowViewState.IdRef="Sequence_40">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="terminal" />
+      <Variable x:TypeArguments="x:Boolean" Name="acertoRealizado" />
+      <Variable x:TypeArguments="x:String" Name="dataAcerto" />
+      <Variable x:TypeArguments="x:Int32" Name="tentativas" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1708,141" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Realizando o acerto do caso &quot; + in_TransactionItem.Reference.ToString]" />
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="1708,9366" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InUiElement="[in_PortalBrowser]" ScopeGuid="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1674,9229" sap2010:WorkflowViewState.IdRef="Sequence_26">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="valorAjuste" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Novo Registro'" sap:VirtualizedContainerService.HintSize="1612,157" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm" DesignTimeRectangle="23, 261, 115, 34" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Novo Registro'" FullSelectorArgument="&lt;webctrl tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='' class='btn btn-blue' aaname='Novo Registro' check:innerText='Novo Registro' /&gt;" Guid="ea41b347-346d-425c-b6f2-8cbf9b2961c2" InformativeScreenshot="478d408a1bb2f5e751a5548d5d981aab.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="141, 261, 117, 34" ElementType="Button" FriendlyName="'Exportar Excel'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='button' class='btn btn-blue' aaname='Exportar Excel' check:innerText='Exportar Excel' /&gt;" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="1612,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
+            <uix:NSelectItem DisplayName="Select Item 'Tipo Ajuste *'" sap:VirtualizedContainerService.HintSize="1612,157" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="Acerto de Ocorrencia" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Version="V3">
+              <uix:NSelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="13">
+                  <x:String></x:String>
+                  <x:String>Acerto de Abastecimento</x:String>
+                  <x:String>Acerto de Auditoria</x:String>
+                  <x:String>Acerto de Ocorrencia</x:String>
+                  <x:String>Acerto de Recolhimento</x:String>
+                  <x:String>Depósito Dinheiro</x:String>
+                  <x:String>Depósito de Cheques</x:String>
+                  <x:String>Emissão de Cartão</x:String>
+                  <x:String>Emissão de Cheque</x:String>
+                  <x:String>Pagamento</x:String>
+                  <x:String>Recarga</x:String>
+                  <x:String>SINISTRO</x:String>
+                  <x:String>Saque</x:String>
+                </scg:List>
+              </uix:NSelectItem.Items>
+              <uix:NSelectItem.Target>
+                <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" DesignTimeRectangle="934, 261, 198, 34" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'SELECT tipoAjusteInput'" FullSelectorArgument="&lt;webctrl id='tipoAjusteInput' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tipoAjusteInput' tag='SELECT' type='' class='form-control ng-pristine ng-invalid ng-invalid-required ng-touched' aaname='Tipo &amp;#x9;&amp;#x9;&amp;#x9;Ajuste * &amp;#x9;&amp;#x9;' /&gt;" Guid="8199c5a9-402d-4094-948d-c35e78011681" InformativeScreenshot="1e49553a4de60cdcf469b6b330c09a66.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="829, 269, 75, 14" CvTextArgument="Tipo Ajuste *" CvType="Text" DesignTimeRectangle="805, 261, 114, 24" ElementType="Text" FriendlyName="'Tipo Ajuste *'" FullSelectorArgument="&lt;webctrl aaname='Tipo &amp;#x9;&amp;#x9;&amp;#x9;Ajuste  &amp;#x9;&amp;#x9;' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Tipo &amp;#x9;&amp;#x9;&amp;#x9;Ajuste  &amp;#x9;&amp;#x9;' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Tipo Ajuste *' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NSelectItem.Target>
+            </uix:NSelectItem>
+            <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="1612,90" sap2010:WorkflowViewState.IdRef="Delay_3" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Protocolo *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1612,218" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InteractionMode="HardwareEvents" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="[in_TransactionItem.Reference.ToString]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="476, 260, 315, 37" CvType="InputBox" DesignTimeRectangle="478, 261, 312, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT numOcorrenciaInput'" FullSelectorArgument="&lt;webctrl id='numOcorrenciaInput' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='numOcorrenciaInput' tag='INPUT' type='text' class='form-control ng-pristine ng-untouched ng-invalid ng-invalid-required' aaname='Protocolo &amp;#x9;&amp;#x9;&amp;#x9;* &amp;#x9;&amp;#x9;' /&gt;" Guid="bc8ac279-9ef0-4d94-add1-2d6873bdac24" InformativeScreenshot="3676807efe5864ecebe5a172eef46b32.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="383, 269, 66, 12" CvTextArgument="Protocolo *" CvType="Text" DesignTimeRectangle="349, 261, 114, 24" ElementType="Text" FriendlyName="'Protocolo *'" FullSelectorArgument="&lt;webctrl aaname='Protocolo &amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Protocolo &amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Protocolo *' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <If Condition="[in_TransactionItem.SpecificContent(&quot;TipoTransacao&quot;).ToString = &quot;Depósito em dinheiro&quot; Or in_TransactionItem.SpecificContent(&quot;TipoTransacao&quot;).ToString = &quot;Depósito Rápido&quot; Or in_TransactionItem.SpecificContent(&quot;TipoTransacao&quot;).ToString = &quot;Depósito varejista&quot; Or in_TransactionItem.SpecificContent(&quot;TipoTransacao&quot;).ToString = &quot;Recarga celular&quot;]" sap:VirtualizedContainerService.HintSize="1612,672" sap2010:WorkflowViewState.IdRef="If_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,245" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NSelectItem DisplayName="Select Item 'Tipo Transação'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="Acerto Depósito - Crédito" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Version="V3">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="4">
+                        <x:String>Acerto Saque - Crédito</x:String>
+                        <x:String>Acerto Saque - Débito</x:String>
+                        <x:String>Acerto Depósito - Crédito</x:String>
+                        <x:String>Acerto Depósito - Débito</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" DesignTimeRectangle="820, 310, 312, 34" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'Acerto Saque - Crédito'" FullSelectorArgument="&lt;webctrl idx='3' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='SELECT' class='form-control ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="c5d15b5a-6ac8-4216-9a0f-4de2e45faf3f" InformativeScreenshot="ec8cf0503602820dc28fbb41e4831973.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="706, 310, 84, 34" ElementType="InputBox" FriendlyName="'INPUT horaAcertoBancoIn…'" FullSelectorArgument="&lt;webctrl id='horaAcertoBancoInput' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='horaAcertoBancoInput' tag='INPUT' type='text' class='form-control add-on time ng-pristine ng-untouched ng-valid-pattern ng-invalid ng-invalid-required' aaname='O formato da data deve ser hh:mm' /&gt;" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,245" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NSelectItem DisplayName="Select Item 'Tipo Transação'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NSelectItem_3" Item="Acerto Saque - Crédito" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Version="V3">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="4">
+                        <x:String>Acerto Saque - Crédito</x:String>
+                        <x:String>Acerto Saque - Débito</x:String>
+                        <x:String>Acerto Depósito - Crédito</x:String>
+                        <x:String>Acerto Depósito - Débito</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" DesignTimeRectangle="820, 310, 312, 34" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'Acerto Saque - Crédito'" FullSelectorArgument="&lt;webctrl idx='3' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='SELECT' class='form-control ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="c5d15b5a-6ac8-4216-9a0f-4de2e45faf3f" InformativeScreenshot="ec8cf0503602820dc28fbb41e4831973.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="706, 310, 84, 34" ElementType="InputBox" FriendlyName="'INPUT horaAcertoBancoIn…'" FullSelectorArgument="&lt;webctrl id='horaAcertoBancoInput' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='horaAcertoBancoInput' tag='INPUT' type='text' class='form-control add-on time ng-pristine ng-untouched ng-valid-pattern ng-invalid ng-invalid-required' aaname='O formato da data deve ser hh:mm' /&gt;" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                </Sequence>
+              </If.Else>
+            </If>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Nº Terminal *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1612,218" sap2010:WorkflowViewState.IdRef="NTypeInto_5" InteractionMode="HardwareEvents" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="[in_NumeroLogico.ToString]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="932, 364, 200, 37" CvType="InputBox" DesignTimeRectangle="934, 366, 198, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT codAtmInputAcerto…'" FullSelectorArgument="&lt;webctrl id='codAtmInputAcertoOcorrencia' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='codAtmInputAcertoOcorrencia' tag='INPUT' type='text' class='form-control ng-pristine ng-untouched ng-invalid ng-invalid-required' aaname='Nº Terminal &amp;#x9;&amp;#x9;&amp;#x9;* &amp;#x9;&amp;#x9;' /&gt;" Guid="36ecae10-68f5-4619-86e5-32432e9a1628" InformativeScreenshot="88f1df88a2178a6ef4d858e33cfd5e80.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="829, 374, 67, 12" CvTextArgument="N° Terminal" CvType="Text" DesignTimeRectangle="805, 366, 114, 24" ElementType="Text" FriendlyName="'Nº Terminal *'" FullSelectorArgument="&lt;webctrl aaname='Nº Terminal &amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Nº Terminal &amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;' tag='LABEL' type='' class='col-lg-1 control-label ng-scope' check:innerText='Nº Terminal *' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Data Incidente *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1612,218" sap2010:WorkflowViewState.IdRef="NTypeInto_6" InteractionMode="WindowMessages" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="[in_TransactionItem.SpecificContent(&quot;DataHoraTransacao&quot;).ToString.Substring(0,10).ToString]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="476, 309, 162, 36" CvType="InputBox" DesignTimeRectangle="478, 310, 160, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT dataAcertoATMInput'" FullSelectorArgument="&lt;webctrl id='dataAcertoATMInput' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='dataAcertoATMInput' tag='INPUT' type='datetime' class='form-control add-on ng-valid ng-valid-required ng-dirty ng-valid-parse ng-touched' aaname='Data &amp;#x9;&amp;#x9;&amp;#x9;Incidente * &amp;#x9;&amp;#x9;' /&gt;" Guid="2e5fc7ee-2110-4f81-bba8-21ef62397c99" InformativeScreenshot="183b98acfa0d43ac65c5755008975e79.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="365, 318, 84, 12" CvTextArgument="Data Incidente" CvType="Text" DesignTimeRectangle="349, 310, 114, 41" ElementType="Text" FriendlyName="'Data Incidente *'" FullSelectorArgument="&lt;webctrl aaname='Data &amp;#x9;&amp;#x9;&amp;#x9;Incidente  &amp;#x9;&amp;#x9;' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Data &amp;#x9;&amp;#x9;&amp;#x9;Incidente  &amp;#x9;&amp;#x9;' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Data Incidente *' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Hora'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1612,218" sap2010:WorkflowViewState.IdRef="NTypeInto_7" InteractionMode="DebuggerApi" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="[in_TransactionItem.SpecificContent(&quot;DataHoraTransacao&quot;).ToString.Substring(11).ToString]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="705, 309, 86, 36" CvType="InputBox" DesignTimeRectangle="706, 310, 84, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT horaAcertoBancoIn…'" FullSelectorArgument="&lt;webctrl id='horaAcertoBancoInput' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='horaAcertoBancoInput' tag='INPUT' type='text' class='form-control add-on time ng-pristine ng-untouched ng-valid-pattern ng-invalid ng-invalid-required' aaname='O formato da data deve ser hh:mm' /&gt;" Guid="b4724e7d-0f79-4ee3-b0c6-32c84bcbdba2" InformativeScreenshot="b9e9a0d69e1998c98c662f811cceceb2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="638, 310, 38, 34" FriendlyName="'SPAN'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' parentname='form' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentname='form' tag='SPAN' class='input-group-addon add-on' aaname='' /&gt;" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Valor Ajuste *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1612,218" sap2010:WorkflowViewState.IdRef="NTypeInto_8" InteractionMode="DebuggerApi" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="[in_TransactionItem.SpecificContent(&quot;ValorPagar&quot;).ToString.Replace(&quot;.&quot;,&quot;&quot;).Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;$&quot;,&quot;&quot;).Replace(&quot; &quot;,&quot;&quot;)]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="590, 365, 201, 36" CvType="InputBox" DesignTimeRectangle="592, 366, 198, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'0,00'" FullSelectorArgument="&lt;webctrl id='valorAjusteInput' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='valorAjusteInput' tag='INPUT' type='text' class='form-control ng-valid ng-dirty ng-touched ng-valid-parse' aaname='Valor &amp;#x9;&amp;#x9;&amp;#x9;Ajuste * &amp;#x9;&amp;#x9;' /&gt;" Guid="5a7ba76f-16ec-40b1-bd3d-209dd5f23e3e" InformativeScreenshot="50922f2ae1689a7443150df367387750.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="370, 374, 71, 14" CvTextArgument="Valor Ajuste" CvType="Text" DesignTimeRectangle="349, 366, 114, 24" ElementType="Text" FriendlyName="'Valor Ajuste *'" FullSelectorArgument="&lt;webctrl aaname='Valor &amp;#x9;&amp;#x9;&amp;#x9;Ajuste  &amp;#x9;&amp;#x9;' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Valor &amp;#x9;&amp;#x9;&amp;#x9;Ajuste  &amp;#x9;&amp;#x9;' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Valor Ajuste *' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <If Condition="[in_TransactionItem.SpecificContent(&quot;TipoTransacao&quot;).ToString = &quot;Depósito Rápido&quot; Or (in_TransactionItem.SpecificContent(&quot;NumeroTerminal&quot;).ToString.Contains(&quot;CORBAN&quot;) Or in_TransactionItem.SpecificContent(&quot;NumeroTerminal&quot;).ToString.Contains(&quot;-COR&quot;))]" sap:VirtualizedContainerService.HintSize="1612,1310" sap2010:WorkflowViewState.IdRef="If_4">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,564" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Agência *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_13" InteractionMode="HardwareEvents" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="0000" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="477, 422, 86, 36" CvType="InputBox" DesignTimeRectangle="478, 423, 84, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT numeroAgenciaInput'" FullSelectorArgument="&lt;webctrl id='numeroAgenciaInput' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='numeroAgenciaInput' tag='INPUT' type='text' class='form-control ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-touched' aaname='Agência &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;*' /&gt;" Guid="bf1f2c9d-1b15-45fb-aaaa-776ebfbf8c26" InformativeScreenshot="8a4ae8eb0a27bbf257bb9f2f23d62591.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CvTextArea="392, 430, 56, 15" CvTextArgument="Agencia *" CvType="Text" DesignTimeRectangle="349, 423, 114, 24" ElementType="Text" FriendlyName="'Agência *'" FullSelectorArgument="&lt;webctrl aaname='Agência &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Agência &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Agência *' /&gt;" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Conta *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_14" InteractionMode="DebuggerApi" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="0" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="632, 422, 202, 36" CvType="InputBox" DesignTimeRectangle="634, 423, 198, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT numeroContaCorren…'" FullSelectorArgument="&lt;webctrl id='numeroContaCorrenteInput' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='numeroContaCorrenteInput' tag='INPUT' type='text' class='form-control ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-touched' aaname='Conta &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;*' /&gt;" Guid="e7689a99-70cf-4416-adb8-3a414354d07c" InformativeScreenshot="530d28381300d09976c3eabd4d4294cc.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CvTextArea="576, 431, 43, 12" CvTextArgument="Conta *" CvType="Text" DesignTimeRectangle="577, 423, 42, 24" ElementType="Text" FriendlyName="'Conta *'" FullSelectorArgument="&lt;webctrl aaname='Conta &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Conta &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' tag='LABEL' type='' class='control-label pull-left' check:innerText='Conta *' /&gt;" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NTypeInto>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,564" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Agência *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_9" InteractionMode="HardwareEvents" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="[in_TransactionItem.SpecificContent(&quot;Agencia&quot;).ToString]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="477, 422, 86, 36" CvType="InputBox" DesignTimeRectangle="478, 423, 84, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT numeroAgenciaInput'" FullSelectorArgument="&lt;webctrl id='numeroAgenciaInput' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='numeroAgenciaInput' tag='INPUT' type='text' class='form-control ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-touched' aaname='Agência &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;*' /&gt;" Guid="bf1f2c9d-1b15-45fb-aaaa-776ebfbf8c26" InformativeScreenshot="8a4ae8eb0a27bbf257bb9f2f23d62591.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CvTextArea="392, 430, 56, 15" CvTextArgument="Agencia *" CvType="Text" DesignTimeRectangle="349, 423, 114, 24" ElementType="Text" FriendlyName="'Agência *'" FullSelectorArgument="&lt;webctrl aaname='Agência &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Agência &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Agência *' /&gt;" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Conta *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_10" InteractionMode="DebuggerApi" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="[in_TransactionItem.SpecificContent(&quot;Conta&quot;).ToString]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="632, 422, 202, 36" CvType="InputBox" DesignTimeRectangle="634, 423, 198, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT numeroContaCorren…'" FullSelectorArgument="&lt;webctrl id='numeroContaCorrenteInput' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='numeroContaCorrenteInput' tag='INPUT' type='text' class='form-control ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-touched' aaname='Conta &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;*' /&gt;" Guid="e7689a99-70cf-4416-adb8-3a414354d07c" InformativeScreenshot="530d28381300d09976c3eabd4d4294cc.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CvTextArea="576, 431, 43, 12" CvTextArgument="Conta *" CvType="Text" DesignTimeRectangle="577, 423, 42, 24" ElementType="Text" FriendlyName="'Conta *'" FullSelectorArgument="&lt;webctrl aaname='Conta &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Conta &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' tag='LABEL' type='' class='control-label pull-left' check:innerText='Conta *' /&gt;" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NTypeInto>
+                </Sequence>
+              </If.Else>
+            </If>
+            <uix:NGetText DisplayName="Get Text 'Valor Ajuste *'" sap:VirtualizedContainerService.HintSize="1612,52" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" TextString="[valorAjuste]" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" DesignTimeRectangle="592, 366, 198, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'750,00'" FullSelectorArgument="&lt;webctrl id='valorAjusteInput' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='valorAjusteInput' tag='INPUT' type='text' class='form-control ng-valid ng-dirty ng-valid-parse ng-touched' aaname='Valor &amp;#x9;&amp;#x9;&amp;#x9;Ajuste * &amp;#x9;&amp;#x9;' /&gt;" Guid="212cd0da-c683-4d50-9832-6fe6242aa6c5" InformativeScreenshot="fafeb318d655875aa0a6208bd810bfd6.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="349, 366, 114, 24" ElementType="Text" FriendlyName="'Valor Ajuste *'" FullSelectorArgument="&lt;webctrl aaname='Valor &amp;#x9;&amp;#x9;&amp;#x9;Ajuste  &amp;#x9;&amp;#x9;' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Valor &amp;#x9;&amp;#x9;&amp;#x9;Ajuste  &amp;#x9;&amp;#x9;' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Valor Ajuste *' /&gt;" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NGetText>
+            <If Condition="[valorAjuste.Replace(&quot; &quot;,&quot;&quot;).Replace(&quot;.&quot;,&quot;&quot;).Replace(&quot;,&quot;,&quot;&quot;) &lt;&gt; in_TransactionItem.SpecificContent(&quot;ValorPagar&quot;).ToString.Replace(&quot; &quot;,&quot;&quot;).Replace(&quot;.&quot;,&quot;&quot;).Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;$&quot;,&quot;&quot;).Replace(&quot;R&quot;,&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="1612,52" sap2010:WorkflowViewState.IdRef="If_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,361" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Valor inserido difere do valor a pagar&quot;]" />
+                  <Throw Exception="[New BusinessRuleException(&quot;Valor inserido difere do valor a pagar&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_5" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_30" />
+              </If.Else>
+            </If>
+            <If Condition="[in_TransactionItem.SpecificContent(&quot;NumeroTerminal&quot;).ToString.Contains(&quot;CORBAN&quot;) Or in_TransactionItem.SpecificContent(&quot;NumeroTerminal&quot;).ToString.Contains(&quot;-COR&quot;)]" sap:VirtualizedContainerService.HintSize="1612,1506" sap2010:WorkflowViewState.IdRef="If_10">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,245" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NSelectItem DisplayName="Select Item 'Operadora Autorizadora*'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NSelectItem_5" Item="Banrisul Corban" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Version="V3">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="44">
+                        <x:String></x:String>
+                        <x:String>4ALL</x:String>
+                        <x:String>4all Capitalizacao</x:String>
+                        <x:String>AGIBANK</x:String>
+                        <x:String>AILOS</x:String>
+                        <x:String>BANCO DA AMAZONIA</x:String>
+                        <x:String>BANCO TOPAZIO ATM</x:String>
+                        <x:String>BANESE</x:String>
+                        <x:String>BANESTES</x:String>
+                        <x:String>BANPARA</x:String>
+                        <x:String>BANPARA - AGENCIAS</x:String>
+                        <x:String>BANRISUL</x:String>
+                        <x:String>BMB</x:String>
+                        <x:String>BMG</x:String>
+                        <x:String>BNB</x:String>
+                        <x:String>Banrisul Corban</x:String>
+                        <x:String>CAMBIONET</x:String>
+                        <x:String>CARTAO FRETE</x:String>
+                        <x:String>CIRRUS</x:String>
+                        <x:String>CREFISA</x:String>
+                        <x:String>EDENRED</x:String>
+                        <x:String>EMBRATEC</x:String>
+                        <x:String>EPAY</x:String>
+                        <x:String>INTEGRY</x:String>
+                        <x:String>Inter</x:String>
+                        <x:String>LIVRE</x:String>
+                        <x:String>MAXXCARD</x:String>
+                        <x:String>PAYLY</x:String>
+                        <x:String>PERSONALCARD</x:String>
+                        <x:String>PLUS</x:String>
+                        <x:String>PROSA</x:String>
+                        <x:String>Realize</x:String>
+                        <x:String>SAQUE E PAGUE</x:String>
+                        <x:String>SAQUEEPAGUE</x:String>
+                        <x:String>SOMA</x:String>
+                        <x:String>Sicredi</x:String>
+                        <x:String>Sulcredi</x:String>
+                        <x:String>TECBAN TOPAZIO</x:String>
+                        <x:String>TRUNCAGEM</x:String>
+                        <x:String>Tribanco</x:String>
+                        <x:String>UNICRED</x:String>
+                        <x:String>UNIONPAY</x:String>
+                        <x:String>VerdeCard</x:String>
+                        <x:String>ZUUM</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" DesignTimeRectangle="137, 310, 198, 34" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'SELECT operAutorizadora…'" FullSelectorArgument="&lt;webctrl id='operAutorizadoraInput' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='operAutorizadoraInput' tag='SELECT' type='' class='form-control ng-pristine ng-untouched ng-invalid ng-invalid-required' aaname='Operadora &amp;#x9;&amp;#x9;&amp;#x9;Autorizadora* &amp;#x9;&amp;#x9;' /&gt;" Guid="f131ea85-7a94-4776-8823-95e2c4ce5944" InformativeScreenshot="829e52d3464ce7a449331e8cdab28af1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="8, 310, 114, 41" ElementType="Text" FriendlyName="'Operadora Autorizadora*'" FullSelectorArgument="&lt;webctrl aaname='Operadora &amp;#x9;&amp;#x9;&amp;#x9;Autorizadora &amp;#x9;&amp;#x9;' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Operadora &amp;#x9;&amp;#x9;&amp;#x9;Autorizadora &amp;#x9;&amp;#x9;' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Operadora Autorizadora*' /&gt;" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="452,1079" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NSelectItem DisplayName="Select Item 'Operadora Autorizadora*'" sap:VirtualizedContainerService.HintSize="410,157" sap2010:WorkflowViewState.IdRef="NSelectItem_4" Item="[in_TransactionItem.SpecificContent(&quot;NomeBanco&quot;).ToString]" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Version="V3">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="44">
+                        <x:String></x:String>
+                        <x:String>4ALL</x:String>
+                        <x:String>4all Capitalizacao</x:String>
+                        <x:String>AGIBANK</x:String>
+                        <x:String>AILOS</x:String>
+                        <x:String>BANCO DA AMAZONIA</x:String>
+                        <x:String>BANCO TOPAZIO ATM</x:String>
+                        <x:String>BANESE</x:String>
+                        <x:String>BANESTES</x:String>
+                        <x:String>BANPARA</x:String>
+                        <x:String>BANPARA - AGENCIAS</x:String>
+                        <x:String>BANRISUL</x:String>
+                        <x:String>BMB</x:String>
+                        <x:String>BMG</x:String>
+                        <x:String>BNB</x:String>
+                        <x:String>Banrisul Corban</x:String>
+                        <x:String>CAMBIONET</x:String>
+                        <x:String>CARTAO FRETE</x:String>
+                        <x:String>CIRRUS</x:String>
+                        <x:String>CREFISA</x:String>
+                        <x:String>EDENRED</x:String>
+                        <x:String>EMBRATEC</x:String>
+                        <x:String>EPAY</x:String>
+                        <x:String>INTEGRY</x:String>
+                        <x:String>Inter</x:String>
+                        <x:String>LIVRE</x:String>
+                        <x:String>MAXXCARD</x:String>
+                        <x:String>PAYLY</x:String>
+                        <x:String>PERSONALCARD</x:String>
+                        <x:String>PLUS</x:String>
+                        <x:String>PROSA</x:String>
+                        <x:String>Realize</x:String>
+                        <x:String>SAQUE E PAGUE</x:String>
+                        <x:String>SAQUEEPAGUE</x:String>
+                        <x:String>SOMA</x:String>
+                        <x:String>Sicredi</x:String>
+                        <x:String>Sulcredi</x:String>
+                        <x:String>TECBAN TOPAZIO</x:String>
+                        <x:String>TRUNCAGEM</x:String>
+                        <x:String>Tribanco</x:String>
+                        <x:String>UNICRED</x:String>
+                        <x:String>UNIONPAY</x:String>
+                        <x:String>VerdeCard</x:String>
+                        <x:String>ZUUM</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" DesignTimeRectangle="137, 310, 198, 34" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'SELECT operAutorizadora…'" FullSelectorArgument="&lt;webctrl id='operAutorizadoraInput' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='operAutorizadoraInput' tag='SELECT' type='' class='form-control ng-pristine ng-untouched ng-invalid ng-invalid-required' aaname='Operadora &amp;#x9;&amp;#x9;&amp;#x9;Autorizadora* &amp;#x9;&amp;#x9;' /&gt;" Guid="f131ea85-7a94-4776-8823-95e2c4ce5944" InformativeScreenshot="829e52d3464ce7a449331e8cdab28af1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="8, 310, 114, 41" ElementType="Text" FriendlyName="'Operadora Autorizadora*'" FullSelectorArgument="&lt;webctrl aaname='Operadora &amp;#x9;&amp;#x9;&amp;#x9;Autorizadora &amp;#x9;&amp;#x9;' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Operadora &amp;#x9;&amp;#x9;&amp;#x9;Autorizadora &amp;#x9;&amp;#x9;' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Operadora Autorizadora*' /&gt;" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                  <If Condition="[in_TransactionItem.SpecificContent(&quot;NomeBanco&quot;).ToString = &quot;BANRISUL&quot;]" sap:VirtualizedContainerService.HintSize="410,794" sap2010:WorkflowViewState.IdRef="If_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,306" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Data Acerto Banco'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_20" InteractionMode="DebuggerApi" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="1" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="136, 365, 160, 35" CvType="InputBox" DesignTimeRectangle="137, 366, 160, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT dataAcertoBancoIn…'" FullSelectorArgument="&lt;webctrl id='dataAcertoBancoInput' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='dataAcertoBancoInput' tag='INPUT' type='datetime' class='form-control add-on ng-pristine ng-untouched ng-valid ng-isolate-scope' aaname='Data Acerto Banco &amp;#x9;&amp;#x9;&amp;#x9;' /&gt;" Guid="fb8e9287-2b31-4b58-8d6e-6f3978acc9cf" InformativeScreenshot="0c66e7f492f012f16a08e5106831d7d0.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="8, 366, 114, 41" ElementType="Text" FriendlyName="'Data Acerto Banco'" FullSelectorArgument="&lt;webctrl aaname='Data Acerto Banco &amp;#x9;&amp;#x9;&amp;#x9;' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Data Acerto Banco &amp;#x9;&amp;#x9;&amp;#x9;' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Data Acerto Banco' /&gt;" SearchSteps="FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                        </uix:NTypeInto>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,306" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Data Acerto Banco *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_11" InteractionMode="DebuggerApi" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="1" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="136, 365, 161, 35" CvType="InputBox" DesignTimeRectangle="137, 366, 160, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT dataAcertoBancoIn…'" FullSelectorArgument="&lt;webctrl id='dataAcertoBancoInput' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='dataAcertoBancoInput' tag='INPUT' type='datetime' class='form-control add-on ng-valid ng-isolate-scope ng-dirty ng-valid-parse ng-touched' aaname='Data Acerto Banco &amp;#x9;&amp;#x9;&amp;#x9;*' /&gt;" Guid="e7dd0d9c-2611-45a0-9099-224c8796105f" InformativeScreenshot="30e36f6e38dcaffac088222f8a339e5e.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="8, 366, 114, 41" ElementType="Text" FriendlyName="'Data Acerto Banco *'" FullSelectorArgument="&lt;webctrl aaname='Data Acerto Banco &amp;#x9;&amp;#x9;&amp;#x9;' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Data Acerto Banco &amp;#x9;&amp;#x9;&amp;#x9;' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Data Acerto Banco *' /&gt;" SearchSteps="FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                        </uix:NTypeInto>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </If.Else>
+            </If>
+            <uix:NCheckState DisplayName="Check App State 'Email para envio *'" sap:VirtualizedContainerService.HintSize="1612,1126" sap2010:WorkflowViewState.IdRef="NCheckState_7" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="472,909" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[in_TransactionItem.SpecificContent(&quot;NumeroTerminal&quot;).ToString.Contains(&quot;CORBAN&quot;) Or in_TransactionItem.SpecificContent(&quot;NumeroTerminal&quot;).ToString.Contains(&quot;-COR&quot;)]" sap:VirtualizedContainerService.HintSize="410,794" sap2010:WorkflowViewState.IdRef="If_11">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,306" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Email para envio *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_21" InteractionMode="DebuggerApi" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="[in_Config(&quot;Emails_Corban&quot;).ToString]" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="134, 478, 658, 36" CvType="InputBox" DesignTimeRectangle="137, 479, 653, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT emailsEnvio'" FullSelectorArgument="&lt;webctrl id='emailsEnvio' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='emailsEnvio' tag='INPUT' type='text' class='form-control ng-pristine ng-untouched ng-valid' aaname='Email para envio *' /&gt;" Guid="d217e45f-b619-471e-ae00-afc40cb897b0" InformativeScreenshot="94a4d3e81ce8faa8ee74373432ce94f1.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="8, 479, 114, 41" ElementType="Text" FriendlyName="'Email para envio *'" FullSelectorArgument="&lt;webctrl aaname='Email para envio ' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Email para envio ' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Email para envio *' /&gt;" SearchSteps="FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                        </uix:NTypeInto>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,306" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Email para envio *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_12" InteractionMode="DebuggerApi" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="[in_TransactionItem.SpecificContent(&quot;Emails&quot;).ToString]" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="134, 478, 658, 36" CvType="InputBox" DesignTimeRectangle="137, 479, 653, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT emailsEnvio'" FullSelectorArgument="&lt;webctrl id='emailsEnvio' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='emailsEnvio' tag='INPUT' type='text' class='form-control ng-pristine ng-untouched ng-valid' aaname='Email para envio *' /&gt;" Guid="d217e45f-b619-471e-ae00-afc40cb897b0" InformativeScreenshot="94a4d3e81ce8faa8ee74373432ce94f1.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="8, 479, 114, 41" ElementType="Text" FriendlyName="'Email para envio *'" FullSelectorArgument="&lt;webctrl aaname='Email para envio ' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Email para envio ' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Email para envio *' /&gt;" SearchSteps="FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                        </uix:NTypeInto>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Não havia campo de e-mail para notificar&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="134, 478, 658, 36" CvType="InputBox" DesignTimeRectangle="137, 479, 653, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT emailsEnvio'" FullSelectorArgument="&lt;webctrl id='emailsEnvio' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='emailsEnvio' tag='INPUT' type='text' class='form-control ng-pristine ng-untouched ng-valid' aaname='Email para envio *' /&gt;" Guid="cb77626a-97d3-4c90-9224-22c5c699a2e7" InformativeScreenshot="f1e5a1daa3c83f58faed5172e2865270.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="8, 479, 114, 41" ElementType="Text" FriendlyName="'Email para envio *'" FullSelectorArgument="&lt;webctrl aaname='Email para envio ' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Email para envio ' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Email para envio *' /&gt;" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_TransactionItem.SpecificContent(&quot;NomeBanco&quot;).ToString]" sap:VirtualizedContainerService.HintSize="1612,206" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+              <Sequence x:Key="BANESE" sap:VirtualizedContainerService.HintSize="648,1005" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="tipoConta" />
+                  <Variable x:TypeArguments="x:String" Name="tipoContaRegex" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:Matches FirstMatch="{x:Null}" DisplayName="Find Matching Patterns" sap:VirtualizedContainerService.HintSize="586,60" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[in_TransactionItem.SpecificContent(&quot;Descricao&quot;).ToString]" IsBuilderTabModified="False" Pattern="TIPO\sDE\sCONTA:\s*([\s\S]+?)\s*Poupança" RegexOption="IgnoreCase, Compiled" Result="[tipoConta]" />
+                <If Condition="[in_TransactionItem.SpecificContent(&quot;NumeroTerminal&quot;).ToString.Substring(4,7).ToString is &quot;SEP&quot;]" sap:VirtualizedContainerService.HintSize="586,182" sap2010:WorkflowViewState.IdRef="If_6">
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[terminal]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">Terminal: Varejo</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap:VirtualizedContainerService.HintSize="552,610" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If Condition="[in_TransactionItem.SpecificContent(&quot;NumeroTerminal&quot;).ToString.Substring(4,7).ToString is &quot;COF&quot;]" sap:VirtualizedContainerService.HintSize="510,522" sap2010:WorkflowViewState.IdRef="If_7">
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[terminal]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">Terminal: Cofre</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[terminal]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">
+                                  <Literal x:TypeArguments="x:String" Value="" />
+                                </InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="586,310" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                  <TryCatch.Try>
+                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_10">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[tipoContaRegex]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[tipoConta.First().Value.ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="438,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="s:Exception">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence sap:VirtualizedContainerService.HintSize="450,388" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Não existe Tipo de Conta no Caso&quot;]" />
+                          <Throw Exception="[New BusinessRuleException(&quot;Não existe Tipo de Conta no Caso&quot;)]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_10" />
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                  </TryCatch.Catches>
+                </TryCatch>
+                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Observação'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="586,218" sap2010:WorkflowViewState.IdRef="NTypeInto_15" InteractionMode="DebuggerApi" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="[&quot;Número do terminal: &quot; + in_NumeroLogico.ToString + &quot; | &quot; + terminal.ToString + &quot; | &quot; +  tipoContaRegex.ToString]" Version="V3">
+                  <uix:NTypeInto.Target>
+                    <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="130, 478, 1232, 93" CvType="InputBox" DesignTimeRectangle="137, 479, 1222, 90" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'TEXTAREA observacaoInput'" FullSelectorArgument="&lt;webctrl id='observacaoInput' tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl id='observacaoInput' tag='TEXTAREA' type='text' class='form-control ng-valid ng-dirty ng-valid-parse ng-touched' aaname='Observação' /&gt;" Guid="81e97154-e155-4adf-9b03-db2d52ce9b4f" InformativeScreenshot="0428db5a2b02a88c257d8d71c394b07f.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target CvTextArea="36, 486, 71, 16" CvTextArgument="Observacao" CvType="Text" DesignTimeRectangle="8, 479, 114, 24" ElementType="Text" FriendlyName="'Observação'" FullSelectorArgument="&lt;webctrl aaname='Observação' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Observação' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Observação' /&gt;" SearchSteps="FuzzySelector, CV" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NTypeInto.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NTypeInto>
+              </Sequence>
+              <uix:NTypeInto x:Key="BANESTES" ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Observação'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_18" InteractionMode="DebuggerApi" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="[&quot;Nome do terminal: &quot; + in_TransactionItem.SpecificContent(&quot;NumeroTerminal&quot;).ToString]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="130, 478, 1232, 93" CvType="InputBox" DesignTimeRectangle="137, 479, 1222, 90" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'TEXTAREA observacaoInput'" FullSelectorArgument="&lt;webctrl id='observacaoInput' tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl id='observacaoInput' tag='TEXTAREA' type='text' class='form-control ng-valid ng-dirty ng-valid-parse ng-touched' aaname='Observação' /&gt;" Guid="81e97154-e155-4adf-9b03-db2d52ce9b4f" InformativeScreenshot="0428db5a2b02a88c257d8d71c394b07f.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target CvTextArea="36, 486, 71, 16" CvTextArgument="Observacao" CvType="Text" DesignTimeRectangle="8, 479, 114, 24" ElementType="Text" FriendlyName="'Observação'" FullSelectorArgument="&lt;webctrl aaname='Observação' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Observação' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Observação' /&gt;" SearchSteps="FuzzySelector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NTypeInto>
+              <uix:NTypeInto x:Key="BANPARA" ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Observação'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="NTypeInto_17" InteractionMode="DebuggerApi" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="[&quot;Nome do terminal: &quot; + in_TransactionItem.SpecificContent(&quot;NumeroTerminal&quot;).ToString + &quot; | Nome do favorecido: &quot; + in_TransactionItem.SpecificContent(&quot;NomeFavorecido&quot;).ToString]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="130, 478, 1232, 93" CvType="InputBox" DesignTimeRectangle="137, 479, 1222, 90" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'TEXTAREA observacaoInput'" FullSelectorArgument="&lt;webctrl id='observacaoInput' tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl id='observacaoInput' tag='TEXTAREA' type='text' class='form-control ng-valid ng-dirty ng-valid-parse ng-touched' aaname='Observação' /&gt;" Guid="81e97154-e155-4adf-9b03-db2d52ce9b4f" InformativeScreenshot="0428db5a2b02a88c257d8d71c394b07f.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target CvTextArea="36, 486, 71, 16" CvTextArgument="Observacao" CvType="Text" DesignTimeRectangle="8, 479, 114, 24" ElementType="Text" FriendlyName="'Observação'" FullSelectorArgument="&lt;webctrl aaname='Observação' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Observação' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Observação' /&gt;" SearchSteps="FuzzySelector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NTypeInto>
+              <uix:NTypeInto x:Key="AILOS" ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Observação'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="NTypeInto_16" InteractionMode="DebuggerApi" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Text="[&quot;Data de abertura da contestação: &quot; + in_TransactionItem.SpecificContent(&quot;DataAbertura&quot;).ToString]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="130, 478, 1232, 93" CvType="InputBox" DesignTimeRectangle="137, 479, 1222, 90" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'TEXTAREA observacaoInput'" FullSelectorArgument="&lt;webctrl id='observacaoInput' tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl id='observacaoInput' tag='TEXTAREA' type='text' class='form-control ng-valid ng-dirty ng-valid-parse ng-touched' aaname='Observação' /&gt;" Guid="81e97154-e155-4adf-9b03-db2d52ce9b4f" InformativeScreenshot="0428db5a2b02a88c257d8d71c394b07f.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target CvTextArea="36, 486, 71, 16" CvTextArgument="Observacao" CvType="Text" DesignTimeRectangle="8, 479, 114, 24" ElementType="Text" FriendlyName="'Observação'" FullSelectorArgument="&lt;webctrl aaname='Observação' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Observação' tag='LABEL' type='' class='col-lg-1 control-label' check:innerText='Observação' /&gt;" SearchSteps="FuzzySelector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NTypeInto>
+            </Switch>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1612,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,268" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Cancelar'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="21, 660, 226, 36" CvTextArea="105, 671, 59, 13" CvTextArgument="Cancelar" CvType="Button" DesignTimeRectangle="23, 661, 223, 34" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Cancelar'" FullSelectorArgument="&lt;webctrl tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='' class='btn btn-default col-lg-2 pull-left' aaname='Cancelar' check:innerText='Cancelar' /&gt;" Guid="f67a50fd-45a3-4e57-8912-80c3742bb44b" InformativeScreenshot="f39f3e968f722870ff955f280cd930ba.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Salvar'" sap:VirtualizedContainerService.HintSize="1612,157" sap2010:WorkflowViewState.IdRef="NClick_11" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm/edit" CvElementArea="1135, 548, 225, 37" CvTextArea="1226, 558, 43, 14" CvTextArgument="Salvar" CvType="Button" DesignTimeRectangle="1136, 549, 223, 34" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Salvar'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='btn btn-blue col-lg-2 pull-right ng-scope' aaname='Salvar' check:innerText='Salvar' /&gt;" Guid="dc6cbf8c-2fed-4c96-997c-3030cb542f51" InformativeScreenshot="b5a8de5ad981114f01f317e5935671d1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="1612,90" sap2010:WorkflowViewState.IdRef="Delay_4" />
+            <uix:NCheckState DisplayName="Check App State 'Novo Registro'" sap:VirtualizedContainerService.HintSize="1612,1547" sap2010:WorkflowViewState.IdRef="NCheckState_9" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="1108,1330" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="valorSemCifrao" />
+                    <Variable x:TypeArguments="x:String" Name="valor" />
+                    <Variable x:TypeArguments="x:String" Name="data" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1046,178" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[valorSemCifrao]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("ValorPagar").ToString.Substring(1).ToString]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[valor]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">["BRL " + valorSemCifrao.Replace(",","#").Replace(".",",").Replace("#",".").Replace(" ","").ToString]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[data]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("DataHoraTransacao").ToString.Substring(0,10).ToString]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:MultipleAssign>
+                  <uix:NCheckState DisplayName="Check App State - Data" sap:VirtualizedContainerService.HintSize="1046,414" sap2010:WorkflowViewState.IdRef="NCheckState_10" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" Version="V1">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,197" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_8">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[acertoRealizado]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="496,197" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_9">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[acertoRealizado]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm" DesignTimeRectangle="955, 455, 137, 35" ElementType="Text" FriendlyName="'BRL 6.000,00'" FullSelectorArgument="&lt;webctrl aria-role='grid' tag='TABLE' /&gt;&lt;webctrl tableCol='6' tableRow='3' tag='TD' /&gt;" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl aria-role='grid' tag='TABLE' /&gt;&lt;webctrl type='' class='ng-binding' tag='TD' aaname='{0}' check:innerText='{0}' /&gt;&quot;, valor)]" Guid="e9447b2f-4d23-46fa-9fd7-3fce47ea8ab4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAI0AAAAnCAYAAAAy2cstAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAHrSURBVHhe7ZzbjcIwEADpibpIKxGdhEoQBVAAEg3ky+eNX+vEXLxw0ul0M9IK2fHaJDtxwg+HeZ6dxP1+Xz4JohXaD6QhuqKSRhoEYYmDi0gD4BXaD6SBLpAGzCANmEEaMIM0YAZpwEy/NI/JDcejO6oYr+HQ7Vz362PuOrrh8oyNFk83nVLe4KZH7Nb4OdK8ZS6dN7pb7G2PVejzOOes/TzI2KTRF1nap8mXTqRZFVsd25PmeRmKYOs1Fm5uzFKIKGEtycvzSsGXvPbYQt0nsoe19/JA85E0Yyza+9JIgUY3eQHCXd4o1mrdJFm9pi+6rPdibCGOi6383XbzQGOTJm3rKeKF3j6eVEF3pVGPAy1bolFQGb+RRnaKF2MLW2mWc9jNA837O81S8FA4XcDNBe/Yacqs+jERaRSUneZ3+VCaUOD146m8K3i+lSYUKB+XO3+901QiFVE3ect3a48t1H2807yHTZrqEaR/Pa0vshQh9klBq7xWIbfH1uKl/CKgzlO7U2tslsqjz0PfBM01oEW/NH8ZL0p6aYfP+R/SwI+CNGAGacAM0oAZpAEzSANmkAbMIA2YQRowgzRgBmnADNKAGaQBM0gDZpAGzCANmEEaMIM0YKaSRhoEYQn+c4/oCu0H0hBdUfyY3Rf9srsYF669zQAAAABJRU5ErkJggg==" InformativeScreenshot="d7dc8b790b0143970a519aff2ee7da19.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="618, 455, 160, 35" ElementType="Text" FriendlyName="'08/02/2024'" FullSelectorArgument="&lt;webctrl aria-role='grid' tag='TABLE' /&gt;&lt;webctrl tableCol='4' tableRow='3' tag='TD' /&gt;" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl aria-role='grid' tag='TABLE' /&gt;&lt;webctrl type='' class='ng-binding' tag='TD' aaname='{0}' check:innerText='{0}' /&gt;&quot;, data)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKQAAAAnCAYAAACBkeM3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAICSURBVHhe7ZzdbYNAEAbdE3WFVhCd4EosCnABlmiAp8vt/bEH2MKJEtbSjPQpcOz6Inmyx1Mu8zw7yf1+Dz8J+e9o9xCSnJ5KSLkhxEouLiE3AGeg3UNIOB2EBFMgJJgCIcEUCAmmQEgwxRtCTm74alzTSDo3plX3GFwb1nz6shrXw/1+33Rt09qq79a59jr5i9F1+XnTuuERH8vz3BfrhCe1ibCX3gPMclhI+VKLACJFkW0RYOwb193itdTI9W6fyPo1+O6I7puuXfi86rNKvYiXpV723q9NZIER8iM4LOTY68njxUhful6vr6M4z/o0Im0UykvWb5+XvjJ1I0ufRu+RBC5/QGCdnwtZTap4XC5y+OdJgOd9keo49cJ15RjOSE/6jB0hl2NbULXh90rXCPkx/HJCagGkJr3XeQGyKK8mZKlPbCaeCKgFfjUh92rLe2VMLS9Y5LCQ1TQqE0eEXCTINfk9UK8FSl+cquvjNh/zAandHO96v9UE3NQqyr5gncNCZonitFmJk6dQkMLXVe+BO326J6W7edmKNLonJQuneqPoL2ozCPkxvCEkwN+DkGAKhARTICSYAiHBFAgJpkBIMAVCgikQEkyBkGAKhARTICSYAiHBFAgJpkBIMAVCgikQEkyBkGAKhARTVELKDSFWwv8YJ6dHu4eQ5PQs7s3uG+wbu1yVaxFtAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NCheckState.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NCheckState>
+                  <If Condition="[acertoRealizado]" sap:VirtualizedContainerService.HintSize="1046,543" sap2010:WorkflowViewState.IdRef="If_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="532,954" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NGetText DisplayName="Get Text 'Localizar'" sap:VirtualizedContainerService.HintSize="490,157" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="f375e6d0-7554-4a06-b6d2-d2511df11ed3" TextString="[out_CodAcerto]" Version="V3">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm" CvElementArea="77, 313, 131, 36" CvType="InputBox" DesignTimeRectangle="78, 315, 130, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'231231'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='form-control ng-valid ng-dirty ng-valid-parse ng-touched' aaname='' /&gt;" Guid="a020442d-2204-47a1-975a-f7014b3a82be" InformativeScreenshot="27f17c14059d66822fc16219871495a2.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CvTextArea="22, 322, 54, 12" CvTextArgument="Localizar" CvType="Text" DesignTimeRectangle="23, 321, 52, 17" ElementType="Text" FriendlyName="'Localizar'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='' aaname='Localizar' check:innerText='Localizar' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NGetText.Target>
+                        </uix:NGetText>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="490,143" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;Acerto realizado com sucesso &quot; + out_CodAcerto.ToString]" />
+                        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="490,486" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                          <TryCatch.Try>
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AvançarEtapa.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Salesforce\AvançarEtapa.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+                                <InArgument x:TypeArguments="ui:UiElement" x:Key="in_SalesforceBrowser">[in_SalesforceBrowser]</InArgument>
+                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument">
+                                  <Literal x:TypeArguments="x:String" Value="" />
+                                </InArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                            </ui:InvokeWorkflowFile>
+                          </TryCatch.Try>
+                          <TryCatch.Catches>
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="456,323" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ActivityAction x:TypeArguments="s:Exception">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                </ActivityAction.Argument>
+                                <Sequence sap:VirtualizedContainerService.HintSize="450,254" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Não foi possível avançar a etapa do caso &quot; + in_TransactionItem.Reference.ToString]" />
+                                </Sequence>
+                              </ActivityAction>
+                            </Catch>
+                          </TryCatch.Catches>
+                        </TryCatch>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,361" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Não foi possível realizar o acerto&quot;]" />
+                        <Throw Exception="[New BusinessRuleException(&quot;Não foi possível realizar o acerto&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_8" />
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,388" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Não foi possível realizar o acerto&quot;]" />
+                  <Throw Exception="[New BusinessRuleException(&quot;Não foi possível realizar o acerto&quot;)]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_6" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="http://portal-cb.sep.local:8080/portal/#/acerto-atm" CvElementArea="21, 259, 117, 37" CvTextArea="35, 270, 91, 17" CvTextArgument="Novo Registro" CvType="Button" DesignTimeRectangle="23, 261, 115, 34" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Novo Registro'" FullSelectorArgument="&lt;webctrl tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='' class='btn btn-blue' aaname='Novo Registro' check:innerText='Novo Registro' /&gt;" Guid="cd612b24-f487-45cd-8b19-4ca060101196" InformativeScreenshot="a2592971705a15e9a95d353fbd09233f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Saque e Pague | Portal' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvElementArea="139, 259, 120, 37" CvTextArea="153, 270, 93, 17" CvTextArgument="Exportar Excel" CvType="Button" DesignTimeRectangle="141, 261, 117, 34" ElementType="Button" FriendlyName="'Exportar Excel'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='button' class='btn btn-blue' aaname='Exportar Excel' check:innerText='Exportar Excel' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
